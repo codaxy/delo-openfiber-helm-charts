@@ -90,10 +90,10 @@ secretEnv:
   - name: ConnectionStrings__AppDbConnection
     valueFrom:
       secretKeyRef:
-        name: of-db-delo-openfiber-portal-db-conn
+        name: delo-of-portal-db-conn
         key: ConnectionStrings__AppDbConnection
   - name: ConnectionStrings__NsoDbConnection
     valueFrom:
       secretKeyRef:
-        name: of-db-delo-openfiber-portal-db-conn
+        name: delo-of-portal-db-conn
         key: ConnectionStrings__NsoDbConnection
