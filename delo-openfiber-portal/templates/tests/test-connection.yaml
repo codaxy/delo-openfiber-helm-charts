@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "delo-openfiber-portal.fullname" . }}-test-connection"
+  labels:
+    {{- include "delo-openfiber-portal.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "delo-openfiber-portal.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
