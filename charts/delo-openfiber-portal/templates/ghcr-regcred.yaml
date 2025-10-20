@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJnaGNyLmlvIjp7InVzZXJuYW1lIjoiZGVsby1zYS1jZHh5IiwicGFzc3dvcmQiOiJnaHBfM0s3TEdBNVNkb1NRYnFzTWdZUDZLWGNsRG1kOW9zNGVCaFowIiwiZW1haWwiOiJuaWtvbGFAZXhhbXBsZS5jb20iLCJhdXRoIjoiWkdWc2J5MXpZUzFqWkhoNU9tZG9jRjh6U3pkTVIwRTFVMlJ2VTFGaWNYTk5aMWxRTmt0WVkyeEViV1E1YjNNMFpVSm9XakE9In19fQ==
+kind: Secret
+metadata:
+  name: ghcr-regcred
+  labels:
+    {{- include "delo-openfiber-portal.labels" . | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-name: <release-name>
+type: kubernetes.io/dockerconfigjson

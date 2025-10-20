@@ -1,0 +1,5 @@
+*/templates/secret*
+*/templates/ghcr*
+*.tgz
+dist/
+packages/
