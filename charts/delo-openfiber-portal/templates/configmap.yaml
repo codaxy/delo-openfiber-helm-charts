@@ -1,0 +1,12 @@
+{{- $raw := (default "" .Values.appsettingsJson | trim) -}}
+{{- if $raw }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: of-portal-config
+  labels:
+    {{- include "delo-openfiber-portal.labels" . | nindent 4 }}
+data:
+  appsettings.Production.json: |
+{{ $raw | nindent 4 }}
+{{- end }}
