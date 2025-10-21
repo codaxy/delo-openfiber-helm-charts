@@ -1,5 +1,18 @@
 apiVersion: v1
 entries:
+  cloud-native-pg:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2025-10-21T20:03:01.047505595Z"
+    description: A Helm chart for creating postgres cluster via CloudNativePG operator
+    digest: 32110e556574c1e03ab8d99664844d83f088be632b888ec90ddf835b42541a89
+    maintainers:
+    - name: Codaxy
+    name: cloud-native-pg
+    type: application
+    urls:
+    - https://github.com/codaxy/delo-openfiber-helm-charts/releases/download/cloud-native-pg-1.0.0/cloud-native-pg-1.0.0.tgz
+    version: 1.0.0
   delo-openfiber-portal:
   - apiVersion: v2
     appVersion: latest
@@ -37,4 +50,4 @@ entries:
     urls:
     - https://github.com/codaxy/delo-openfiber-helm-charts/releases/download/delo-openfiber-portal-1.0.0/delo-openfiber-portal-1.0.0.tgz
     version: 1.0.0
-generated: "2025-10-21T08:27:52.249008682Z"
+generated: "2025-10-21T20:03:01.047525742Z"
