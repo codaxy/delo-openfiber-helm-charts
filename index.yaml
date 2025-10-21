@@ -3,6 +3,18 @@ entries:
   delo-openfiber-portal:
   - apiVersion: v2
     appVersion: latest
+    created: "2025-10-21T08:27:52.248992152Z"
+    description: A Helm chart for Kubernetes deployment of the DELOINS OpenFiber portal
+    digest: 4df2fc3a0cf2975b3a532e14693b9dba79b1a6b1b6a5544145e2c7878495d20c
+    maintainers:
+    - name: Codaxy
+    name: delo-openfiber-portal
+    type: application
+    urls:
+    - https://github.com/codaxy/delo-openfiber-helm-charts/releases/download/delo-openfiber-portal-1.0.2/delo-openfiber-portal-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2025-10-20T15:05:14.232885111Z"
     description: A Helm chart for Kubernetes deployment of the DELOINS OpenFiber portal
     digest: 0ee5af3f19a7441e567ac43f37c51ec83d155fa3de7ca96fb11338f07e250467
@@ -25,4 +37,4 @@ entries:
     urls:
     - https://github.com/codaxy/delo-openfiber-helm-charts/releases/download/delo-openfiber-portal-1.0.0/delo-openfiber-portal-1.0.0.tgz
     version: 1.0.0
-generated: "2025-10-20T15:05:14.232893637Z"
+generated: "2025-10-21T08:27:52.249008682Z"
