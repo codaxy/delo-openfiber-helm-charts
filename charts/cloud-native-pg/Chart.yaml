@@ -1,0 +1,10 @@
+apiVersion: v2
+name: cloud-native-pg
+description: A Helm chart for creating postgres cluster via CloudNativePG operator
+
+maintainers:
+  - name: Codaxy
+
+type: application
+version: 1.0.0
+appVersion: "latest"

@@ -1,0 +1,82 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ include "cloud-native-pg.fullname" . }}
+spec:
+  instances: {{ .Values.instances | int }}
+  imageName: {{ .Values.imageName | quote }}
+  imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
+
+  storage:
+    size: {{ .Values.storage.size | quote }}
+    {{- if .Values.storage.storageClass }}
+    storageClass: {{ .Values.storage.storageClass | quote }}
+    {{- end }}
+    {{- if hasKey .Values.storage "resizeInUseVolumes" }}
+    resizeInUseVolumes: {{ .Values.storage.resizeInUseVolumes }}
+    {{- end }}
+
+  {{- with .Values.resources }}
+  resources:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with .Values.postgresql }}
+  postgresql:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with .Values.monitoring }}
+  monitoring:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  bootstrap:
+    initdb:
+      database: {{ required "bootstrap.initdb.database is required" .Values.bootstrap.initdb.database | quote }}
+      owner: {{ required "bootstrap.initdb.owner is required" .Values.bootstrap.initdb.owner | quote }}
+      {{- with .Values.bootstrap.initdb.secret.existingSecret }}
+      secret:
+        name: {{ tpl . $ }}
+      {{- end }}
+      {{- with .Values.bootstrap.initdb.postInitSQL }}
+      postInitSQL:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.bootstrap.initdb.postInitTemplateSQL }}
+      postInitTemplateSQL:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.bootstrap.initdb.postInitApplicationSQL }}
+      postInitApplicationSQL:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.bootstrap.initdb.postInitApplicationSQLRefs }}
+      postInitApplicationSQLRefs:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+  {{- with .Values.secrets.superuserSecret.existingSecret }}
+  superuserSecret:
+    name: {{ tpl . $ }}
+  {{- end }}
+
+  {{- with .Values.env }}
+  env:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.envFrom }}
+  envFrom:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with .Values.replicationSlots }}
+  replicationSlots:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.backup }}
+  backup:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  logLevel: {{ .Values.logLevel | quote }}

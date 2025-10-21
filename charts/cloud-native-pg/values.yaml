@@ -1,0 +1,53 @@
+name: null
+
+imageName: "ghcr.io/cloudnative-pg/postgresql:16"
+imagePullPolicy: IfNotPresent
+imagePullSecrets: []
+
+instances: 1
+primaryUpdateStrategy: "unsupervised"
+primaryUpdateMethod: "switchover"
+startDelay: 30
+stopDelay: 30
+
+replicationSlots: {}
+
+storage:
+  size: "5Gi"
+  resizeInUseVolumes: true
+  # storageClass: ""
+
+resources: {}
+
+postgresql:
+  parameters:
+    max_connections: '300'
+  # pg_hba: []
+
+bootstrap:
+  initdb:
+    database: ofportal
+    owner: ofportal
+    secret:
+      # Existing Secret with keys: username, password
+      existingSecret: "of-db-app"
+    postInitSQL: []
+    postInitTemplateSQL: []
+    postInitApplicationSQL: []
+    postInitApplicationSQLRefs:
+      # extraConfigMapRefs: []
+      # extraSecretRefs: []
+
+backup: {}
+
+monitoring:
+  enablePodMonitor: false
+
+env: {}
+envFrom: {}
+
+logLevel: "info"
+
+secrets:
+  superuserSecret:
+    existingSecret: "of-db-superuser"
