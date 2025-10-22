@@ -22,3 +22,4 @@ helm search repo delo-of
 
 # example installation of the portal chart (adjust namespace/values as needed)
 helm install portal delo-of/delo-openfiber-portal -n target-namespace -f custom-values.yaml
+```
