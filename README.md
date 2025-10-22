@@ -1,5 +1,3 @@
-# DELO-OpenFiber Helm Charts
-
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 
 ## Published Charts
