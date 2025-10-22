@@ -1,0 +1,10 @@
+Copyright (c) 2025 Codaxy
+All rights reserved.
+
+This Helm chart is provided for deployment of proprietary software maintained
+and owned by Codaxy. It may not be used to deploy, copy, or
+distribute the related application except under a valid license agreement.
+
+The chart itself may be viewed and used for demonstration purposes only.
+Redistribution, modification, or reuse of the underlying Docker images or
+application code is strictly prohibited.
